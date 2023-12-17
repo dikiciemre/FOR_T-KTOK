@@ -1,0 +1,119 @@
+body {
+    background-color: #87CEEB; /* Sky color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .snowman {
+    position: relative;
+    width: 100px;
+    height: 200px;
+    background-color: #fff; /* Snowman color */
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .head {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: #fff; /* Head color */
+    border-radius: 50%;
+  }
+
+  .eye { /* left eye*/
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #000; /* Eye color */
+    border-radius: 50%;
+  }
+
+  .eye2 { /* right eye*/
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #000; /* Eye color */
+    border-radius: 50%;
+  }
+
+
+  .nose {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #ff6600; /* Carrot color */
+  }
+
+  .body {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background-color: #fff; /* Body color */
+    border-radius: 50%;
+  }
+
+  .button {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #000; /* Button color */
+    border-radius: 50%;
+  }
+
+  .scarf {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 10px;
+    background-color: #ff4500; /* Scarf color */
+  }
+
+  .hat {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    background-color: #000; /* Hat color */
+  }
+
+  .brim {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background-color: #000; /* Brim color */
+  }
+
+
+
+
