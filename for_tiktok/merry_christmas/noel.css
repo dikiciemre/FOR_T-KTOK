@@ -1,0 +1,46 @@
+body {
+    background-color: #282c35;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.merry-christmas {
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-top: 40vh;
+    position: absolute;
+    margin-left: 500px;
+    width: 500px;
+    justify-content: center;
+    text-align: center;
+}
+
+.merry-christmas:hover {
+    -webkit-box-shadow: 18px 28px 25px 25px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 18px 28px 25px 25px rgba(255, 255, 255, 1);
+    box-shadow: 18px 28px 25px 25px rgba(255, 255, 255, 1);
+}
+
+.snowflake {
+    position: absolute;
+    display: block;
+    color: #fff;
+    opacity: 0.8;
+    font-size: 20px;
+    line-height: 1;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
