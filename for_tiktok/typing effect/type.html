@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+    
+    /* Cursor Animation */
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Cursor Style */
+    .cursor::after {
+      content: '|';
+      display: inline-block;
+      margin-left: 2px;
+      border-right: 2px solid #000;
+      animation: blink 1s step-end infinite;
+    }
+  </style>
+
+
+</head>
+<body>
+
+
+  <!-- Typing Effect Container -->
+  <div id="typing-container">
+    <span id="text"></span><span class="cursor"></span>
+  </div>
+
+
+
+  <!-- Here is JavaScript Codes-->
+  <script>
+    const textContainer = document.getElementById('text');
+    const textToType = "Hello My name is Emre";
+    let index = 0;
+
+    function typeText() {
+      textContainer.textContent += textToType[index];
+      index++;
+
+      if (index < textToType.length) {
+        setTimeout(typeText, 150); // you can change the speed how you want (150)
+      }
+    }
+
+    // Start typing when the page loads
+    window.onload = function() {
+      typeText();
+    };
+  </script>
+</body>
+</html>
