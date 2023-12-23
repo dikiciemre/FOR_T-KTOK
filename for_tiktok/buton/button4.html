@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Random Effect Button */
+    .random-effect-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 18px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 8px;
+      color: #fff;
+      background-color: #3498db;
+      border: 2px solid #3498db;
+      transition: background-color 0.3s;
+      animation: randomEffect 5s infinite;
+    }
+
+    .random-effect-button:hover {
+      background-color: #2980b9;
+      border-color: #2980b9;
+    }
+
+    @keyframes randomEffect {
+      0%, 20%, 50%, 80%, 100% {
+        background-color: #3498db;
+        transform: translateX(0) rotate(0deg);
+      }
+      40% {
+        background-color: #e74c3c;
+        transform: translateX(10px) rotate(10deg);
+      }
+      60% {
+        background-color: #2ecc71;
+        transform: translateX(-10px) rotate(-10deg);
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Random Effect Button -->
+  <a href="#" class="random-effect-button">Click Me</a>
+
+  
+</body>
+</html>
