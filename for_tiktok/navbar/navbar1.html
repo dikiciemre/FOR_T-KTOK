@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Navbar</title>
+
+
+
+
+
+
+  <style>/* here is css codes */
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5em;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-list li {
+  margin-right: 20px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #66c2ff;
+}
+
+.menu-toggle {
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none;
+}
+
+.content {
+  padding: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .nav-list li {
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+/* css codes finished here */
+  </style> 
+
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+<!-- html codes started -->
+  <nav class="navbar">
+    <div class="logo">Logo</div>
+    <ul class="nav-list">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="menu-toggle">&#9776;</div>
+  </nav>
+
+  <div class="content">
+    <h1>Welcome to your Website</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore consequuntur qui saepe omnis possimus quaerat eveniet ullam voluptate dolore impedit quasi tempora porro officiis iure, voluptates aperiam fugiat laborum sit.</p>
+    <br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, saepe similique. Sapiente, officiis numquam vel asperiores voluptatibus suscipit iure dolores?</p>
+
+</div>
+
+<!-- html codes finished -->
+
+
+
+
+
+<!-- JavaScript codes started -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navList = document.querySelector('.nav-list');
+
+  menuToggle.addEventListener('click', function () {
+    navList.classList.toggle('show');
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 768) {
+      navList.classList.remove('show');
+    }
+  });
+});
+  </script>
+  <!-- JavaScript codes finished -->
+
+
+
+
+</body>
+</html>
