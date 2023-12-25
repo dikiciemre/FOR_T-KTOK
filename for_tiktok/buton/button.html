@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .interactive-button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .interactive-button:hover {
+      background-color: #2980b9;
+    }
+
+    .interactive-button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="interactive-button" onclick="changeEffect()">Click Me</button>
+
+  <script>
+    function changeEffect() {
+      const button = document.querySelector('.interactive-button');
+
+      // Change color randomly
+      const randomColor = getRandomColor();
+      button.style.backgroundColor = randomColor;
+    }
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+
+</body>
+</html>
