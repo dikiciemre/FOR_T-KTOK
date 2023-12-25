@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realistic Snowfall Effect</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: black;
+    }
+    .snowflake {
+      position: absolute;
+      width: 100vh;
+      height: 100vh;
+      background-color: #fff;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: snowfall linear infinite;
+    }
+    @keyframes snowfall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const flakesContainer = document.body;
+      const numberOfFlakes = 100;
+
+      for (let i = 0; i < numberOfFlakes; i++) {
+        createSnowflake();
+      }
+
+      function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.style.left = `${Math.random() * window.innerWidth}px`;
+        flakesContainer.appendChild(snowflake);
+
+        // Randomize animation duration for a more natural look
+        const animationDuration = Math.random() * (5 - 1) + 1; // Between 1s and 5s
+        snowflake.style.animationDuration = `${animationDuration}s`;
+
+        // Randomize size for a more realistic effect
+        const size = Math.random() * (20 - 5) + 5; // Between 5px and 20px
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+      }
+    });
+  </script>
+</body>
+</html>
