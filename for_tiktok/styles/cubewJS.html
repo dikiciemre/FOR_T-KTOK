@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube</title>
+    <!-- CSS Styles -->
+    <!-- Styles for the cube and its faces -->
+    <style>
+        /* Center the content on the page */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            perspective: 800px;
+        }
+
+        /* Styles for the cube */
+        .cube {
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(45deg) rotateY(45deg);
+            animation: rotate 5s infinite linear;
+        }
+
+        /* Styles for each face of the cube */
+        .face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background-color: #3498db;
+            border: 1px solid #2980b9;
+        }
+
+        .front  { transform: translateZ(50px); }
+        .back   { transform: rotateY(180deg) translateZ(50px); }
+        .left   { transform: rotateY(-90deg) translateZ(50px); }
+        .right  { transform: rotateY(90deg) translateZ(50px); }
+        .top    { transform: rotateX(90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+        /* Animation for the cube rotation */
+        @keyframes rotate {
+            from { transform: rotateX(45deg) rotateY(45deg); }
+            to   { transform: rotateX(45deg) rotateY(405deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Cube -->
+    <!-- The container for the 3D cube -->
+    <div class="cube" id="rotatingCube">
+        <!-- Individual faces of the cube -->
+        <div class="face front">1</div>
+        <div class="face back">2</div>
+        <div class="face left">3</div>
+        <div class="face right">4</div>
+        <div class="face top">5</div>
+        <div class="face bottom">6</div>
+    </div>
+    <!-- JavaScript -->
+    <!-- Optional: JavaScript code to control animations -->
+    <script>
+        // JavaScript to stop the rotation when the user hovers over the cube
+        document.getElementById('rotatingCube').addEventListener('mouseover', function() {
+            this.style.animation = 'none'; // Pause the rotation
+        });
+
+        // JavaScript to resume the rotation when the user moves the mouse out
+        document.getElementById('rotatingCube').addEventListener('mouseout', function() {
+            this.style.animation = 'rotate 5s infinite linear'; // Resume the rotation
+        });
+    </script>
+</body>
+</html>

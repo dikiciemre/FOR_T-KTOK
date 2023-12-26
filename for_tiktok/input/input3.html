@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ecf0f1;
+    }
+
+    .input-container {
+      position: relative;
+      margin: 20px;
+    }
+
+    input {
+      width: 300px;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      font-size: 16px;
+      background-color: #ecf0f1;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    input:hover,
+    input:focus {
+      background-color: #d5d8dc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 20px;
+      color: #7f8c8d;
+      font-size: 16px;
+      pointer-events: none;
+      transition: 0.3s ease all;
+    }
+
+    .input-focused label,
+    .input-filled label {
+      top: 10px;
+      font-size: 12px;
+      color: #3498db;
+    }
+  </style>
+  <title>Efektli Input Tasarımı</title>
+</head>
+<body>
+  <div class="input-container">
+    <input type="text" id="myInput" required>
+    <label for="myInput">Adınız Soyadınız</label>
+  </div>
+  <script>
+    const input = document.getElementById('myInput');
+    const label = input.nextElementSibling;
+
+    input.addEventListener('focus', () => {
+      label.classList.add('input-focused');
+    });
+
+    input.addEventListener('blur', () => {
+      if (!input.value.trim()) {
+        label.classList.remove('input-focused');
+        label.classList.remove('input-filled');
+      }
+    });
+
+    input.addEventListener('input', () => {
+      if (input.value.trim()) {
+        label.classList.add('input-filled');
+      } else {
+        label.classList.remove('input-filled');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>input example</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .input-container {
+      position: relative;
+    }
+
+    input {
+      width: 300px;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid #3498db;
+      outline: none;
+      font-size: 16px;
+    }
+
+    label {
+      position: absolute;
+      top: 12px;
+      left: 10px;
+      color: #7f8c8d;
+      font-size: 16px;
+      pointer-events: none;
+      transition: 0.3s ease all;
+    }
+
+    input:focus + label,
+    input:valid + label {
+      top: -12px;
+      left: 5px;
+      font-size: 12px;
+      color: #3498db;
+    }
+  </style>
+  <title>Güzel Input Tasarımı</title>
+</head>
+<body>
+  <div class="input-container">
+    <input type="text" id="myInput" required>
+    <label for="myInput">Name and Surname</label>
+  </div>
+  <script>
+    const input = document.getElementById('myInput');
+
+    input.addEventListener('focus', function () {
+      this.parentElement.querySelector('label').style.top = '-12px';
+      this.parentElement.querySelector('label').style.left = '5px';
+      this.parentElement.querySelector('label').style.fontSize = '12px';
+      this.parentElement.querySelector('label').style.color = '#3498db';
+    });
+
+    input.addEventListener('blur', function () {
+      if (this.value === '') {
+        this.parentElement.querySelector('label').style.top = '12px';
+        this.parentElement.querySelector('label').style.left = '10px';
+        this.parentElement.querySelector('label').style.fontSize = '16px';
+        this.parentElement.querySelector('label').style.color = '#7f8c8d';
+      }
+    });
+
+    // Check if input has value on page load
+    if (input.value !== '') {
+      input.parentElement.querySelector('label').style.top = '-12px';
+      input.parentElement.querySelector('label').style.left = '5px';
+      input.parentElement.querySelector('label').style.fontSize = '12px';
+      input.parentElement.querySelector('label').style.color = '#3498db';
+    }
+  </script>
+</body>
+</html>

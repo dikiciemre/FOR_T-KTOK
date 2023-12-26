@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadows and Highlights</title>
+    <style>
+        /* Center the content on the page */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container for the effects */
+        .effects-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+
+        /* Common styles for the boxes */
+        .box {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        /* 1. Drop Shadow Effect */
+        .box.drop-shadow {
+            background-color: #3498db;
+            color: white;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 2. Inner Shadow Effect */
+        .box.inner-shadow {
+            background-color: #e74c3c;
+            color: white;
+            box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 3. Text Shadow Effect */
+        .box.text-shadow {
+            background-color: #2ecc71;
+            color: white;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* 4. Glow Effect */
+        .box.glow {
+            background-color: #f39c12;
+            color: white;
+            box-shadow: 0 0 20px 5px #f39c12;
+        }
+    </style>
+</head>
+<body>
+    <!-- Effects Container -->
+    <div class="effects-container">
+        <!-- 1. Drop Shadow Effect -->
+        <div class="box drop-shadow">Drop Shadow</div>
+        
+        <!-- 2. Inner Shadow Effect -->
+        <div class="box inner-shadow">Inner Shadow</div>
+        
+        <!-- 3. Text Shadow Effect -->
+        <div class="box text-shadow">Text Shadow</div>
+        
+        <!-- 4. Glow Effect -->
+        <div class="box glow">Glow</div>
+    </div>
+</body>
+</html>

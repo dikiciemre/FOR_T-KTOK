@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Animations</title>
+    <style>
+        /* Center the content on the page */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container for the animated text */
+        .animated-text-container {
+            text-align: center;
+        }
+
+        /* Common styles for the animated text */
+        .animated-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+            padding: 10px;
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Animation 1: Scale on Hover */
+        .animated-text.scale-on-hover:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animation 2: Rotate on Click */
+        .animated-text.rotate-on-click {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .animated-text.rotate-on-click:active {
+            transform: rotate(45deg);
+        }
+
+        /* Animation 3: Color Change on Hover */
+        .animated-text.color-change-on-hover:hover {
+            background-color: #e74c3c;
+        }
+
+        /* Animation 4: Blink Effect */
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .animated-text.blink-effect {
+            animation: blink 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Text Container -->
+    <div class="animated-text-container">
+        <!-- Animation 1: Scale on Hover -->
+        <div class="animated-text scale-on-hover">Scale on Hover</div>
+        
+        <!-- Animation 2: Rotate on Click -->
+        <div class="animated-text rotate-on-click">Rotate on Click</div>
+        
+        <!-- Animation 3: Color Change on Hover -->
+        <div class="animated-text color-change-on-hover">Color Change on Hover</div>
+        
+        <!-- Animation 4: Blink Effect -->
+        <div class="animated-text blink-effect">Blink Effect</div>
+    </div>
+</body>
+</html>
