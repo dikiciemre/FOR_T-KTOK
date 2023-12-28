@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Note Pad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        #noteInput {
+            width: 80%;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+
+        #noteList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .noteItem {
+            margin-bottom: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        #addNoteButton {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Note Pad</h1>
+
+    <textarea id="noteInput" placeholder="Type your note here"></textarea>
+    <button id="addNoteButton" onclick="addNote()">Add Note</button>
+
+    <ul id="noteList"></ul>
+
+    <script>
+        // Function to add a new note
+        function addNote() {
+            var noteText = document.getElementById('noteInput').value;
+
+            if (noteText.trim() !== "") {
+                var noteList = document.getElementById('noteList');
+                var newNote = document.createElement('li');
+                newNote.className = 'noteItem';
+                newNote.innerHTML = noteText;
+
+                // Add delete functionality when clicking on a note
+                newNote.onclick = function() {
+                    if (confirm("Are you sure you want to delete this note?")) {
+                        this.remove();
+                    }
+                };
+
+                noteList.appendChild(newNote);
+                document.getElementById('noteInput').value = ""; // Clear the textarea after adding a note
+            } else {
+                alert("Please enter a note.");
+            }
+        }
+    </script>
+
+</body>
+</html>

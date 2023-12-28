@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        #amountInput {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #fromCurrency, #toCurrency {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        #convertButton {
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 20%;
+        }
+        #convertButton:hover{
+            -webkit-box-shadow: 14px 20px 21px 0px rgba(0,0,0,0.65);
+            -moz-box-shadow: 14px 20px 21px 0px rgba(0,0,0,0.65);
+            box-shadow: 14px 20px 21px 0px rgba(0,0,0,0.65);
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Currency Converter</h1>
+
+    <label for="amountInput">Amount:</label>
+    <input type="number" id="amountInput" placeholder="Enter amount">
+
+    <br>
+
+    <label for="fromCurrency">From:</label>
+    <select id="fromCurrency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="TRY">TRY</option>
+    </select>
+
+    <label for="toCurrency">To:</label>
+    <select id="toCurrency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="TRY">TRY</option>
+    </select>
+
+    <br>
+
+    <button id="convertButton" onclick="convertCurrency()">Convert</button>
+
+    <div id="result"></div>
+
+    <script>
+        function convertCurrency() {
+            var amount = document.getElementById('amountInput').value;
+            var fromCurrency = document.getElementById('fromCurrency').value;
+            var toCurrency = document.getElementById('toCurrency').value;
+
+            // You can replace 'YOUR_ACCESS_KEY' with your own Fixer.io API key
+            var apiKey = 'YOUR_ACCESS_KEY';
+            var apiUrl = `https://open.er-api.com/v6/latest/${fromCurrency}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var exchangeRate = data.rates[toCurrency];
+                    var convertedAmount = (amount * exchangeRate).toFixed(2);
+                    document.getElementById('result').innerHTML = `${amount} ${fromCurrency} is ${convertedAmount} ${toCurrency}`;
+                })
+                .catch(error => console.error('Error fetching exchange rate:', error));
+        }
+    </script>
+
+</body>
+</html>
