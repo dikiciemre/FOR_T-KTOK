@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blinking Loading Screen</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .loading-container {
+      text-align: center;
+    }
+
+    .loading-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .blinking-dot {
+      width: 20px;
+      height: 20px;
+      background-color: #3498db;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      animation: blink 1s infinite alternate;
+    }
+
+    @keyframes blink {
+      0% { opacity: 0.2; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Blinking loading screen container -->
+  <div class="loading-container">
+    <div class="loading-text">Loading<span class="blinking-dot"></span><span class="blinking-dot"></span><span class="blinking-dot"></span><span class="blinking-dot"></span></div>
+  </div>
+
+</body>
+</html>
