@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beautiful Form</title>
+  <style>
+    /* Apply styles for the body */
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f8f8f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Define styles for the form container */
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    /* Apply general styles for input fields */
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: 0.3s;
+    }
+
+    /* Update styles when input fields are focused */
+    input:focus {
+      border-color: #6cb2eb;
+      box-shadow: 0 0 5px rgba(108, 178, 235, 0.5);
+    }
+
+    /* Define styles for the submit button */
+    button {
+      background-color: #6cb2eb;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    /* Add a hover effect for the submit button */
+    button:hover {
+      background-color: #4a8edb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Create the form container -->
+  <div class="form-container">
+    <h2>Login Form</h2>
+    <!-- Define the form -->
+    <form>
+      <!-- Name field -->
+      <input type="text" placeholder="Name" required>
+      <!-- Surname field -->
+      <input type="text" placeholder="Surname" required>
+      <!-- Email field -->
+      <input type="email" placeholder="Email" required>
+      <!-- Password field -->
+      <input type="password" placeholder="Password" required>
+      <!-- Submit button -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>
