@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+
+        #todo-container {
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        li.completed {
+            background-color: #c8e6c9;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 2px solid #4caf50;
+            outline: none;
+            transition: border-bottom 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-bottom: 2px solid #2196F3;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        select {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 5px;
+            outline: none;
+        }
+
+        select:focus {
+            border-color: #2196F3;
+        }
+
+        .priority-low {
+            color: #2196F3;
+        }
+
+        .priority-medium {
+            color: #FFC107;
+        }
+
+        .priority-high {
+            color: #F44336;
+        }
+    </style>
+    <title>To-Do List</title>
+</head>
+<body>
+    <div id="todo-container">
+        <h2>To-Do List</h2>
+        <input type="text" id="newTodo" placeholder="Add a new task">
+        <button onclick="addTodo()">Add</button>
+        <ul id="todoList"></ul>
+    </div>
+
+    <script>
+        function addTodo() {
+            const newTodoInput = document.getElementById("newTodo");
+            const todoList = document.getElementById("todoList");
+
+            const todoText = newTodoInput.value;
+
+            if (todoText.trim() !== "") {
+                const li = document.createElement("li");
+                li.textContent = todoText;
+
+                const prioritySelect = document.createElement("select");
+                prioritySelect.innerHTML = `
+                    <option value="low" class="priority-low">Low</option>
+                    <option value="medium" class="priority-medium">Medium</option>
+                    <option value="high" class="priority-high">High</option>
+                `;
+
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.addEventListener("change", function () {
+                    toggleCompleted(li, this.checked);
+                });
+
+                li.appendChild(prioritySelect);
+                li.appendChild(checkbox);
+
+                todoList.appendChild(li);
+
+                newTodoInput.value = "";
+            }
+        }
+
+        function toggleCompleted(li, isChecked) {
+            li.classList.toggle("completed", isChecked);
+        }
+    </script>
+</body>
+</html>

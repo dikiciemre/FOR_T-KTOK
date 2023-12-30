@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic styling */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #sonuc {
+            margin-top: 20px;
+        }
+    </style>
+    <title>Survey Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Survey Form</h1>
+        <form id="surveyForm">
+            <!-- Name input -->
+            <label for="fullName">Your Full Name:</label>
+            <input type="text" id="fullName" required>
+
+            <!-- Age input -->
+            <label for="age">Your Age:</label>
+            <input type="number" id="age" required>
+
+            <!-- Hometown input -->
+            <label for="hometown">Your Hometown:</label>
+            <input type="text" id="hometown" required>
+
+            <!-- Occupation input -->
+            <label for="occupation">Your Occupation:</label>
+            <input type="text" id="occupation" required>
+
+            <!-- Favorite color selection -->
+            <label>Your Favorite Color:</label>
+            <select id="color">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+            </select>
+
+            <!-- Form submission button -->
+            <button type="button" onclick="submitForm()">Submit Survey</button>
+        </form>
+
+        <!-- Section to display survey results -->
+        <div id="result" style="display:none;">
+            <h2>Survey Results</h2>
+            <hr>
+            <!-- Paragraphs to display survey results -->
+            <p id="resultFullName"></p>
+            <p id="resultAge"></p>
+            <p id="resultHometown"></p>
+            <p id="resultOccupation"></p>
+            <p id="resultColor"></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code
+
+        // Function to handle form submission
+        function submitForm() {
+            // Get user input values
+            var fullName = document.getElementById("fullName").value;
+            var age = document.getElementById("age").value;
+            var hometown = document.getElementById("hometown").value;
+            var occupation = document.getElementById("occupation").value;
+            var color = document.getElementById("color").value;
+
+            // Display the results
+            document.getElementById("resultFullName").innerText = "Your Full Name: " + fullName;
+            document.getElementById("resultAge").innerText = "Your Age: " + age;
+            document.getElementById("resultHometown").innerText = "Your Hometown: " + hometown;
+            document.getElementById("resultOccupation").innerText = "Your Occupation: " + occupation;
+            document.getElementById("resultColor").innerText = "Your Favorite Color: " + color;
+
+            // Hide the form, show the results
+            document.getElementById("surveyForm").style.display = "none";
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+</body>
+</html>

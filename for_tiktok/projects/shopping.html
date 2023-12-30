@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic style file */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Product card style file */
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            display: inline-block;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+
+        /* Cart content and total style file */
+
+        #cart {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        #cart table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #cart th, #cart td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #cart th {
+            background-color: #f2f2f2;
+        }
+
+        #total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Cart buttons style file */
+
+        .cart-buttons {
+            margin-top: 20px;
+        }
+
+        .cart-buttons button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .cart-buttons button:hover {
+            background-color: #45a049;
+        }
+
+        /* Preview style file */
+
+        #preview {
+            display: none;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        #preview h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Shopping Cart App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart App</h1>
+
+        <!-- Product cards -->
+        <div class="product-card" data-id="1" data-name="Product 1" data-price="20">
+            <img src="https://via.placeholder.com/150" alt="Product 1">
+            <p>Product 1</p>
+            <p>$20</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="2" data-name="Product 2" data-price="30">
+            <img src="https://via.placeholder.com/150" alt="Product 2">
+            <p>Product 2</p>
+            <p>$30</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="3" data-name="Product 3" data-price="25">
+            <img src="https://via.placeholder.com/150" alt="Product 3">
+            <p>Product 3</p>
+            <p>$25</p>
+            <button onclick="addToCart(3)">Add to Cart</button>
+        </div>
+
+        <!-- Cart content -->
+        <div id="cart">
+            <h2>Shopping Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cartBody"></tbody>
+            </table>
+            <div id="total"></div>
+            <div class="cart-buttons">
+                <button onclick="clearCart()">Clear Cart</button>
+                <button onclick="showPreview()">Preview</button>
+            </div>
+        </div>
+
+        <!-- Preview section -->
+        <div id="preview">
+            <h2>Order Preview</h2>
+            <div id="previewContent"></div>
+            <button onclick="checkout()">Confirm Order</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code
+
+        const cart = [];
+
+        function addToCart(productId) {
+            const product = document.querySelector(`[data-id="${productId}"]`);
+            const productIdInCart = cart.findIndex(item => item.id === productId);
+
+            if (productIdInCart !== -1) {
+                cart[productIdInCart].quantity++;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: product.dataset.name,
+                    price: parseFloat(product.dataset.price),
+                    quantity: 1
+                });
+            }
+
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartBody = document.getElementById('cartBody');
+            const totalElement = document.getElementById('total');
+
+            cartBody.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const totalItemPrice = item.price * item.quantity;
+                total += totalItemPrice;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${totalItemPrice.toFixed(2)}</td>
+                    <td><button onclick="removeFromCart(${item.id})">Remove</button></td>
+                `;
+                cartBody.appendChild(row);
+            });
+
+            totalElement.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(productId) {
+            const productIndex = cart.findIndex(item => item.id === productId);
+
+            if (productIndex !== -1) {
+                if (cart[productIndex].quantity > 1) {
+                    cart[productIndex].quantity--;
+                } else {
+                    cart.splice(productIndex, 1);
+                }
+
+                updateCart();
+            }
+        }
+
+        function clearCart() {
+            cart.length = 0;
+            updateCart();
+        }
+
+        function showPreview() {
+            const previewContent = document.getElementById('previewContent');
+            previewContent.innerHTML = '';
+
+            cart.forEach(item => {
+                const itemPreview = document.createElement('p');
+                itemPreview.textContent = `${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`;
+                previewContent.appendChild(itemPreview);
+            });
+
+            const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+            const totalPreview = document.createElement('p');
+            totalPreview.textContent = `Total: $${total.toFixed(2)}`;
+            previewContent.appendChild(totalPreview);
+
+            const previewSection = document.getElementById('preview');
+            previewSection.style.display = 'block';
+        }
+
+        function checkout() {
+            alert('Checkout completed!');
+            clearCart();
+            hidePreview();
+        }
+
+        function hidePreview() {
+            const previewSection = document.getElementById('preview');
+            previewSection.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic styling */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 80%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #memeImage {
+            margin-top: 20px;
+        }
+
+        /* Meme text styling */
+        .top-text,
+        .bottom-text {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+            color: #fff;
+            pointer-events: none;
+        }
+
+        .top-text {
+            top: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .bottom-text {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+    <title>Meme Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Meme Generator</h1>
+        <!-- Input fields for top and bottom text -->
+        <label for="topText">Top Text:</label>
+        <input type="text" id="topText" placeholder="Enter top text">
+        <label for="bottomText">Bottom Text:</label>
+        <input type="text" id="bottomText" placeholder="Enter bottom text">
+        <!-- Button to generate meme -->
+        <button onclick="generateMeme()">Generate Meme</button>
+        <!-- Container to display generated meme -->
+        <div id="memeImage"></div>
+    </div>
+
+    <script>
+        // JavaScript code
+
+        function generateMeme() {
+            // Get top and bottom text from input fields
+            const topText = document.getElementById('topText').value;
+            const bottomText = document.getElementById('bottomText').value;
+
+            // Array of meme images
+            const memeImages = [
+                'https://i.imgflip.com/1bij.jpg',
+                'https://i.imgflip.com/1bi5.jpg',
+                'https://i.imgflip.com/1bh8.jpg',
+               
+            ];
+
+            // Select a random meme image
+            const randomImage = memeImages[Math.floor(Math.random() * memeImages.length)];
+
+            // Create meme container
+            const memeContainer = document.getElementById('memeImage');
+            memeContainer.innerHTML = `
+                <img src="${randomImage}" alt="Generated Meme">
+                <div class="top-text">${topText}</div>
+                <div class="bottom-text">${bottomText}</div>
+            `;
+        }
+    </script>
+</body>
+</html>
