@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .animated-text {
+      font-size: 2em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #333;
+      animation: type 6s steps(20, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes type {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink-caret {
+      from, to {
+        border-right-color: transparent;
+      }
+      50% {
+        border-right-color: #333;
+      }
+    }
+  </style>
+  <title>Text Animation</title>
+</head>
+<body>
+  <div id="text-container" class="animated-text"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      animateText();
+    });
+
+    function animateText() {
+      var textContainer = document.getElementById('text-container');
+      var texts = ["I'M EMRE", "", "I'M DEVELOPER"];
+      var index = 0;
+
+      function typeText() {
+        var currentText = texts[index];
+        var text = "";
+        var i = 0;
+
+        function type() {
+          if (i < currentText.length) {
+            text += currentText.charAt(i);
+            textContainer.textContent = text;
+            i++;
+            setTimeout(type, 150);
+          } else {
+            setTimeout(eraseText, 1000);
+          }
+        }
+
+        type();
+      }
+
+      function eraseText() {
+        var currentText = texts[index];
+        var text = currentText;
+        var i = currentText.length - 1;
+
+        function erase() {
+          if (i >= 0) {
+            text = text.slice(0, i);
+            textContainer.textContent = text;
+            i--;
+            setTimeout(erase, 50);
+          } else {
+            index = (index + 1) % texts.length;
+            setTimeout(typeText, 1000);
+          }
+        }
+
+        erase();
+      }
+
+      typeText();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #333;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .text-container {
+      text-align: center;
+    }
+
+    .animated-text {
+      font-size: 2em;
+      display: inline-block;
+    }
+
+    .highlight {
+      color: #ffffff;
+      animation: highlight 2s infinite alternate;
+    }
+
+    .color-change {
+      animation: colorChange 4s infinite;
+    }
+
+    @keyframes highlight {
+      to {
+        background-color: #f9f151;
+      }
+    }
+
+    @keyframes colorChange {
+      0%, 100% {
+        color: #fff;
+      }
+      50% {
+        color: #f9f151;
+      }
+    }
+  </style>
+  <title>Text Animation</title>
+</head>
+<body>
+  <div class="text-container">
+    <h1 class="animated-text">
+      <span class="highlight">Hello</span>, <span class="color-change">My name is Emre!</span>
+    </h1>
+  </div>
+</body>
+</html>

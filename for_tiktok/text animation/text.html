@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .text-container {
+      overflow: hidden;
+    }
+
+    .animated-text {
+      display: inline-block;
+      font-size: 2em;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: type 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes type {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink-caret {
+      from, to {
+        border-right: 2px solid black;
+      }
+      50% {
+        border-right: 2px solid transparent;
+      }
+    }
+  </style>
+  <title>Text Animation</title>
+</head>
+<body>
+  <div class="text-container">
+    <h1 class="animated-text">Hello, My name is Emre !</h1>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      animateText();
+    });
+
+    function animateText() {
+      var textElement = document.querySelector('.animated-text');
+      var text = textElement.textContent;
+      textElement.textContent = '';
+
+      for (var i = 0; i < text.length; i++) {
+        var span = document.createElement('span');
+        span.textContent = text[i];
+        span.classList.add('char');
+        textElement.appendChild(span);
+      }
+    }
+  </script>
+</body>
+</html>

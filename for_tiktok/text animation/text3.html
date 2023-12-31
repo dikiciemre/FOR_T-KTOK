@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .animated-text {
+      font-size: 2em;
+      display: inline-block;
+      position: relative;
+      color: transparent;
+      animation: colorChange 2s infinite alternate, slideText 4s infinite;
+    }
+
+    @keyframes colorChange {
+      0% {
+        color: #ff8c00;
+      }
+      100% {
+        color: #4caf50;
+      }
+    }
+
+    @keyframes slideText {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(10px);
+      }
+    }
+  </style>
+  <title>Text Animation</title>
+</head>
+<body>
+  <h1 class="animated-text">I'M EMRE</h1>
+</body>
+</html>
