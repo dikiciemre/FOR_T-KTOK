@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Parallax container to hold the sections and background image */
+    .parallax-container {
+      position: relative;
+      height: 200vh; /* Increased height for more scrolling */
+      overflow: hidden;
+    }
+
+    /* Background image with parallax effect */
+    .parallax-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/ffffff.jpg') center/cover no-repeat;
+      transform: translateZ(0);
+      z-index: -1;
+    }
+
+    /* Each section with content */
+    .section {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 80px 20px;
+      color: #fff;
+    }
+
+    /* Content inside the parallax effect */
+    .parallax-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.3s ease-out; /* Transition effect for smoother movement */
+    }
+
+    /* Second section with a different background color */
+    .section2 {
+        margin-top: 200px;
+      background: #333;
+    }
+
+    /* Third section with another background color */
+    .section3 {
+        margin-top: 200px;
+
+      background: #555;
+    }
+  </style>
+  <title>Dynamic Parallax</title>
+</head>
+<body>
+
+<!-- Parallax container holding background image and sections -->
+<div class="parallax-container">
+  <div class="parallax-bg"></div>
+
+  <!-- First section with welcoming content -->
+  <div class="section">
+    <div class="parallax-content" id="content1">
+      <h1>Welcome</h1>
+      <p>Welcome to our website. Experience the parallax effect by scrolling.</p>
+    </div>
+  </div>
+
+  <!-- Second section with features content -->
+  <div class="section section2">
+    <div class="parallax-content" id="content2">
+      <h2>Features</h2>
+      <p>Explore the features of our website in this section.</p>
+    </div>
+  </div>
+
+  <!-- Third section with contact information -->
+  <div class="section section3">
+    <div class="parallax-content" id="content3">
+      <h2>Contact Us</h2>
+      <p>Use the contact information below to reach us.</p>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for controlling the parallax effect -->
+<script>
+  window.addEventListener('scroll', function() {
+    var scrollPosition = window.scrollY;
+
+    // Parallax effect rates for each section
+    var parallaxRate1 = 0.2;
+    var parallaxRate2 = 0.4;
+    var parallaxRate3 = 0.6;
+
+    // Move the content elements upward on scroll
+    document.getElementById('content1').style.transform = 'translate(-50%, -50%) translateY(' + -scrollPosition * parallaxRate1 + 'px)';
+    document.getElementById('content2').style.transform = 'translate(-50%, -50%) translateY(' + -scrollPosition * parallaxRate2 + 'px)';
+    document.getElementById('content3').style.transform = 'translate(-50%, -50%) translateY(' + -scrollPosition * parallaxRate3 + 'px)';
+  });
+</script>
+
+</body>
+</html>
