@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Slider</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .slider-container {
+      width: 80%;
+      margin: 50px auto;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .slide-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .slide-arrow {
+      font-size: 2em;
+      color: #333;
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="slider-container">
+  <div class="slides">
+    <div class="slide">
+      <img src="https://placekitten.com/800/400" alt="Slide 1">
+    </div>
+    <div class="slide">
+      <img src="https://placekitten.com/800/401" alt="Slide 2">
+    </div>
+    <div class="slide">
+      <img src="https://placekitten.com/800/402" alt="Slide 3">
+    </div>
+  </div>
+
+  <div class="slide-nav">
+    <button class="slide-arrow" onclick="prevSlide()">&#10094;</button>
+    <button class="slide-arrow" onclick="nextSlide()">&#10095;</button>
+  </div>
+</div>
+
+<script>
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    const slides = document.querySelector('.slides');
+    const slideWidth = document.querySelector('.slide').offsetWidth;
+
+    if (index < 0) {
+      currentSlide = slides.children.length - 1;
+    } else if (index >= slides.children.length) {
+      currentSlide = 0;
+    } else {
+      currentSlide = index;
+    }
+
+    slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+</script>
+
+</body>
+</html>
