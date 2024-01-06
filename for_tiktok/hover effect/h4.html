@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Enlarge Hover Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            overflow: hidden;
+        }
+
+        .hover-box {
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .hover-box:hover {
+            box-shadow: 0 0 20px rgb(255, 40, 40);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hover-box">Hover Me</div>
+
+</body>
+</html>
