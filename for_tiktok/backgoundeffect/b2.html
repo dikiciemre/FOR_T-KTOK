@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Background Effect</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        .parallax-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .parallax-bg {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="parallax-container">
+        <img class="parallax-bg" src="/ffffff.jpg" alt="Parallax Background">
+        <div class="content">
+            <h1>Parallax Background Effect!</h1>
+        </div>
+    </div>
+
+    <script>
+        var parallaxContainer = document.querySelector('.parallax-container');
+        
+        parallaxContainer.addEventListener('mousemove', function (e) {
+            var xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+            var yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+
+            parallaxContainer.style.transform = 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)';
+        });
+
+        parallaxContainer.addEventListener('mouseleave', function () {
+            parallaxContainer.style.transition = 'transform 0.5s ease';
+            parallaxContainer.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        });
+
+        parallaxContainer.addEventListener('mouseenter', function () {
+            parallaxContainer.style.transition = 'none';
+        });
+    </script>
+
+</body>
+</html>

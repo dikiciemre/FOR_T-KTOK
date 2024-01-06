@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom In Entry Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            overflow: hidden;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .entry-text {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="entry-text">
+        <h1>Welcome to My Website</h1>
+        <p>This is another entry animation using zoom-in effect.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const entryText = document.querySelector('.entry-text');
+
+            setTimeout(function () {
+                entryText.style.opacity = '1';
+                entryText.style.transform = 'scale(1)';
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>

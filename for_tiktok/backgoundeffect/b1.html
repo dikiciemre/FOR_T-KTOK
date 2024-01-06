@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Background Effect</title>
+    <style>
+        /* General styling for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b, #ffeda2, #7f5a83);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s infinite;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Styling for the heading */
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        /* Animation for the background gradient */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Heading element -->
+    <h1>Beautiful Background Effect!</h1>
+
+</body>
+</html>

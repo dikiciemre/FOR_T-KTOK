@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improved Text Particle Effect</title>
+    <style>
+        /* General styling for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            overflow: hidden;
+        }
+
+        /* Container for the text particles */
+        .text-container {
+            position: relative;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            font-size: 3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* Style for each text particle */
+        .text-particle {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #ff7e5f;
+            border-radius: 50%;
+            pointer-events: none; /* Avoid interfering with mouse events */
+            transition: transform 0.5s ease-out; /* Smooth transition for movement */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container for text particles -->
+    <div class="text-container">
+        <!-- Text particles for each letter -->
+        <span class="text-particle">T</span>
+        <span class="text-particle">e</span>
+        <span class="text-particle">x</span>
+        <span class="text-particle">t</span>
+        <!-- Add other letters similarly -->
+    </div>
+
+    <!-- JavaScript to handle mouse movement -->
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            // Select all text particles
+            const particles = document.querySelectorAll('.text-particle');
+            
+            // Iterate over each particle
+            particles.forEach((particle, index) => {
+                // Calculate position based on mouse movement
+                const angle = (index / particles.length) * Math.PI * 2;
+                const distance = 250;
+                const mouseX = e.clientX + Math.cos(angle) * distance;
+                const mouseY = e.clientY + Math.sin(angle) * distance;
+
+                // Move the particle to the calculated position
+                // Combine horizontal and vertical movement for more accurate tracking
+                particle.style.transform = `translate(${mouseX - particle.clientWidth / 20}px, ${mouseY - particle.clientHeight / 2}px)`;
+            });
+        });
+    </script>
+
+</body>
+</html>
