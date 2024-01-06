@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text with JavaScript</title>
+    <style>
+        .animated-text {
+            font-size: 24px;
+            color: #333;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="text" class="animated-text">Hello, welcome to the world!</div>
+    <button onclick="changeText()">Change Text</button>
+
+    <script>
+        function changeText() {
+            var textElement = document.getElementById('text');
+            textElement.innerHTML = 'Text changed with JavaScript!';
+        }
+    </script>
+
+</body>
+</html>
