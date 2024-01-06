@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Shadow vs Drop Shadow Karşılaştırması</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+        }
+        .box{
+            box-shadow: 0 0 20px 20px;
+        }
+        .drop{
+            filter: drop-shadow(5px 5px 15px rgba(20, 0,15, 25)); /* Drop Shadow efekti */
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <div >
+        <h2>Box Shadow</h2>
+        <img class="box" src="/people.png">
+    </div>
+
+    <div >
+        <h2>Drop Shadow</h2>
+        <img class="drop" src="/people.png" alt="Drop Shadow Example">
+    </div>
+
+</body>
+</html>
