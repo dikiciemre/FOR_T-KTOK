@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analog Clock</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    .clock {
+      width: 200px;
+      height: 200px;
+      border: 8px solid #333;
+      border-radius: 50%;
+      position: relative;
+      transform: rotate(90deg); /* Saatin başlangıç noktasını düzeltmek için */
+    }
+    
+    .hour, .minute, .second {
+      position: absolute;
+      width: 50%;
+      background-color: #333;
+      top: 50%;
+      transform-origin: 100%;
+      transform: rotate(0deg);
+    }
+
+    .hour {
+      height: 3px;
+      background-color: #3498db;
+    }
+
+    .minute {
+      height: 4px;
+      background-color: #333;
+    }
+
+    .second {
+      height: 2px;
+      background-color: #e74c3c;
+    }
+
+    .number {
+      position: absolute;
+      font-size: 12px;
+      font-weight: bold;
+      transform-origin: 100%;
+      transform: rotate(0deg); /* Sayıların düzgün yerleşmesi için */
+    }
+
+    .number:nth-child(3n) {
+      font-size: 16px;
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+<div class="clock">
+  <div class="hour" id="hour"></div>
+  <div class="minute" id="minute"></div>
+  <div class="second" id="second"></div>
+  
+  <!-- Saat değerleri -->
+  <div class="number" style="rotate: -90deg; left: 95%; top: 50%;">6</div>
+  <div class="number" style="rotate: -90deg; left: 50%; top: 90%;">9</div>
+  <div class="number" style="rotate: -90deg; left: -1%; top: 45%;">12</div>
+  <div class="number" style="rotate: -90deg; left: 50%; top: 5%;">3</div>
+</div>
+
+<script>
+  function updateClock() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const hourElement = document.getElementById('hour');
+    const minuteElement = document.getElementById('minute');
+    const secondElement = document.getElementById('second');
+
+    const hourDeg = ((hours % 12) + minutes / 60) * 30;
+    const minuteDeg = (minutes + seconds / 60) * 6;
+    const secondDeg = seconds * 6;
+
+    hourElement.style.transform = `rotate(${hourDeg}deg)`;
+    minuteElement.style.transform = `rotate(${minuteDeg}deg)`;
+    secondElement.style.transform = `rotate(${secondDeg}deg)`;
+  }
+
+  // Initial call to set the clock immediately
+  updateClock();
+
+  // Update the clock every second
+  setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>
