@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Buttons</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-button {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    border-radius: 50%;
+    background-color: #333; /* Gri arka plan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Beyaz yazı rengi */
+    font-size: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .social-button:hover {
+    background-color: #555; /* Gri hover efekti */
+    transform: translateY(-5px); /* Yukarı doğru kaydırma */
+  }
+
+  .social-button::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* Beyaz opak arka plan */
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease-out;
+    z-index: -1;
+    border-radius: 50%;
+    transform: scale(0);
+  }
+
+  .social-button:hover::before {
+    transform: scale(2); /* Büyütme animasyonu */
+  }
+</style>
+</head>
+<body>
+
+<div class="social-buttons">
+  <a href="#" class="social-button">F</a>
+  <a href="#" class="social-button">T</a>
+  <a href="#" class="social-button">I</a>
+</div>
+
+</body>
+</html>

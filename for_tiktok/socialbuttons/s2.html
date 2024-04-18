@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Buttons</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        #social-media-buttons {
+            text-align: center;
+        }
+
+        .social-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #instagram-button {
+            background: linear-gradient(to right, #fd5d94, #c13584, #833ab4);
+        }
+
+        #linkedin-button {
+            background: linear-gradient(to right, #0077B5, #005e9e);
+        }
+
+        #facebook-button {
+            background: linear-gradient(to right, #3b5998, #2672b4);
+        }
+
+        .social-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="social-media-buttons">
+        <a id="instagram-button" class="social-button" href="#" target="_blank">Instagram</a>
+        <a id="linkedin-button" class="social-button" href="#" target="_blank">LinkedIn</a>
+        <a id="facebook-button" class="social-button" href="#" target="_blank">Facebook</a>
+    </div>
+</body>
+</html>
