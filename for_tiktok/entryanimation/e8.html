@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entry Animation</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+
+  .content {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .content h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease forwards;
+  }
+
+  .content p {
+    font-size: 1.2em;
+    color: #666;
+    text-align: center;
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="content">
+  <h1>Welcome</h1>
+  <p>This is a simple entry animation with an effect.</p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const content = document.querySelector('.content');
+    content.classList.add('show');
+  });
+</script>
+
+</body>
+</html>
