@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Cards with Animation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .profile-card {
+            width: 200px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .front {
+            background-color: #fff;
+        }
+
+        .back {
+            background-color: #f8f8f8;
+            transform: rotateY(180deg);
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+
+        .info {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="card">
+            <div class="face front">
+                <img src="/view.jpg" alt="Profile Picture">
+            </div>
+            <div class="face back">
+                <div class="info">
+                    <h2>John Doe</h2>
+                    <p>Web Developer</p>
+                    <p>Contact: john@example.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

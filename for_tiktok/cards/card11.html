@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorful Card</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+  }
+
+  .card {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-header {
+    background-color: #3498db;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .card-body {
+    padding: 20px;
+    background-color: #fff;
+  }
+
+  .card-body h2 {
+    margin-top: 0;
+  }
+
+  .card-footer {
+    background-color: #3498db;
+    padding: 15px;
+    text-align: center;
+  }
+
+  button {
+    background-color: #fff;
+    color: #3498db;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #3498db;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-header">
+    <h2>Title Here</h2>
+  </div>
+  <div class="card-body">
+    <p>Text Here</p>
+  </div>
+  <div class="card-footer">
+    <button onclick="changeColor()">Change Color</button>
+  </div>
+</div>
+
+<script>
+  function changeColor() {
+    var card = document.querySelector('.card');
+    var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    card.style.backgroundColor = randomColor;
+  }
+</script>
+</body>
+</html>

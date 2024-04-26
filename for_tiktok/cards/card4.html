@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Card</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #secretMessage {
+            color: #27ae60;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="magicalCard">
+        <img src="/view2.jpg" alt="Card Image" class="card-image">
+        <div class="card-content">
+            <h2>Magical Card</h2>
+            <p>This is a magical card with some interactive elements!</p>
+            <button onclick="revealMessage()">Reveal Secret</button>
+            <p id="secretMessage">Abracadabra! You've discovered the secret message!</p>
+        </div>
+    </div>
+
+    <script>
+        function revealMessage() {
+            var secretMessage = document.getElementById('secretMessage');
+            secretMessage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

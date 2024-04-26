@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorful Card</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  .card-container {
+    width: 300px;
+  }
+
+  .card {
+    background-color: #3498db;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .card:hover {
+    background-color: #2980b9;
+  }
+
+  .card-content {
+    color: #fff;
+  }
+
+  button {
+    background-color: #fff;
+    color: #3498db;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #3498db;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="card-container">
+  <div class="card" id="card">
+    <div class="card-content">
+      <h2>Title Here</h2>
+      <p>Text Here</p>
+      <button onclick="changeColor()">Change Color</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function changeColor() {
+    var card = document.getElementById('card');
+    var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    card.style.backgroundColor = randomColor;
+  }
+</script>
+</body>
+</html>
