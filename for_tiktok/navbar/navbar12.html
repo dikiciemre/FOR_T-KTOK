@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stylish Navigation Bar</title>
+<style>
+  /* Navbar stilini burada tanımla */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .navbar {
+    background-color: #2980b9; /* Ana renk */
+    overflow: hidden;
+  }
+  .navbar a {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .navbar a:hover {
+    background-color: #2c3e50; /* Fare üzerine gelindiğindeki renk */
+  }
+  .navbar a.active {
+    background-color: #34495e; /* Aktif bağlantının rengi */
+  }
+  .navbar a.logo {
+    background-color: #34495e; /* Logo rengi */
+    color: #fff;
+  }
+  .navbar a.search {
+    float: right;
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a class="logo" href="#">Logo</a>
+  <a href="#">Home</a>
+  <a href="#">About Us</a>
+  <a href="#">Services</a>
+  <a href="#">Featured</a>
+  <a href="#">Contact Me</a>
+  <a class="search" href="#">&#128269;</a> <!-- Search icon -->
+</div>
+
+</body>
+</html>

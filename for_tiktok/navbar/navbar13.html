@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Navigation Bar</title>
+<style>
+  /* Navbar stilini burada tanımla */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .navbar {
+    background-color: #333;
+    overflow: hidden;
+    padding: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .navbar a {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .navbar a:hover {
+    background-color: #555;
+  }
+  .navbar a.active {
+    background-color: #4CAF50;
+  }
+  .navbar a.logo {
+    font-size: 24px;
+    margin-right: 20px;
+  }
+  .navbar a.search {
+    float: right;
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a class="logo" href="#">Logo</a>
+  <a href="#">Home</a>
+  <a href="#">About Us</a>
+  <a href="#">Services</a>
+  <a href="#">Featured</a>
+  <a href="#">Contact Me</a>
+  <a class="search" href="#">&#128269;</a> <!-- Search icon -->
+</div>
+
+</body>
+</html>
