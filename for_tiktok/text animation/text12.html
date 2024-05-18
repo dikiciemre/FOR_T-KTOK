@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Animation</title>
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .animated-text {
+    font-size: 24px;
+    font-weight: bold;
+    animation: blink 1s infinite alternate;
+  }
+
+  @keyframes blink {
+    from {
+      color: red;
+    }
+    to {
+      color: blue;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 class="animated-text">This text blinks with animation.</h1>
+</div>
+<script>
+  // Opsiyonel olarak JavaScript kullanmak istemiyorsanız bu dosyayı kaldırabilirsiniz.
+</script>
+</body>
+</html>

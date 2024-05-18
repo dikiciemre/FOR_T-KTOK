@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #222;
+            font-family: Arial, sans-serif;
+        }
+        .animated-text {
+            font-size: 2em;
+            color: #fff;
+            animation: scale 2s infinite alternate, color-change 4s infinite;
+        }
+        @keyframes scale {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.5);
+            }
+        }
+        @keyframes color-change {
+            0% {
+                color: #ff0000;
+            }
+            25% {
+                color: #00ff00;
+            }
+            50% {
+                color: #0000ff;
+            }
+            75% {
+                color: #ff00ff;
+            }
+            100% {
+                color: #ffff00;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-text">Amazing Text Animation!</div>
+
+    <script>
+        // Additional JavaScript can be added here if needed for more control.
+    </script>
+</body>
+</html>

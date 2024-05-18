@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .text-container {
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .animated-text {
+            display: inline-block;
+            font-size: 2em;
+            animation: move 10s linear infinite, color-change 10s linear infinite;
+        }
+        @keyframes move {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        @keyframes color-change {
+            0% {
+                color: red;
+            }
+            25% {
+                color: orange;
+            }
+            50% {
+                color: yellow;
+            }
+            75% {
+                color: green;
+            }
+            100% {
+                color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <div class="animated-text">This is a text animation!</div>
+    </div>
+
+    <script>
+        // You can add JavaScript here to control the animation if needed.
+    </script>
+</body>
+</html>

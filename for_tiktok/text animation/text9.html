@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        #animated-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            animation: rotateColor 5s linear infinite;
+        }
+
+        @keyframes rotateColor {
+            0% {
+                transform: rotate(0deg);
+                color: #333;
+            }
+            25% {
+                transform: rotate(90deg);
+                color: #ff6347; /* Tomatoes Red */
+            }
+            50% {
+                transform: rotate(180deg);
+                color: #32cd32; /* Lime Green */
+            }
+            75% {
+                transform: rotate(270deg);
+                color: #1e90ff; /* Dodger Blue */
+            }
+            100% {
+                transform: rotate(360deg);
+                color: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="animated-text">Text Animation</div>
+</body>
+</html>
