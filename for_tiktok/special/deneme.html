@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mustafa Emre Dikici - Portföy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #343a40; /* Arkaplan rengi */
+            color: #f8f9fa; /* Yazı rengi */
+        }
+
+        header {
+            background-color: #212529; /* Header arkaplan rengi */
+            color: #fff;
+            text-align: center;
+            padding: 2em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #f8f9fa; /* İçerik arkaplan rengi */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            color: #343a40; /* İçerik yazı rengi */
+        }
+
+        h1, h2, h3 {
+            color: #fff; /* Başlık yazı rengi */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        .project-card {
+            padding: 1em;
+            background-color: #dee2e6; /* Proje kartı arkaplan rengi */
+            border-radius: 8px;
+            margin-bottom: 1em;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #212529; /* Footer arkaplan rengi */
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            height: 17px;
+            width: 100%;
+        }
+
+        .cv-button {
+            background-color: #ffd900;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1em;
+            display: inline-block;
+        }
+
+        .social-buttons {
+            margin-top: 1em;
+            text-align: center;
+        }
+
+        .social-buttons a {
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+            background-color: #ffd900;
+            color: #000000;
+            border-radius: 50%;
+            line-height: 40px;
+            margin: 0 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-buttons a:hover {
+            background-color: #ff9500;
+        }
+        .cv-button:hover {
+            background-color: #ff9500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 style="margin-bottom: 0.5em;">Mustafa Emre Dikici</h1>
+        <p style="font-style: italic;">Computer Engineer</p>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/dkcemrex/?hl=tr">İnstagram</a>
+            <a href="https://www.linkedin.com/in/mustafa-emre-dikici-94a103250/">Linkedln</a>
+            <a href="mailto:destek@mustafaemredikici.com" >E-Mail</a>
+            <a href="https://medium.com/@dikiciemre" >Medium</a>
+
+
+            <!-- Diğer sosyal medya butonlarını buraya ekleyebilirsiniz -->
+        </div>
+    </header>
+
+    <section>
+        <h2 style="color: black">About Me</h2>
+        <p>Hello, I'm a computer engineer with a strong background in mobile application development. I have extensive experience, particularly with Flutter, and have built a deep understanding in this area. Additionally, I have been closely involved with frontend technologies such as React, HTML, CSS, Typescript, and JavaScript, and have developed projects using these tools.
+
+            On the backend side, I have worked on various projects using languages like Python, Java, and PHP. I am experienced in building robust and scalable backend systems with these languages.
+            
+            Overall, I possess comprehensive knowledge and experience in both frontend and backend development, and I thoroughly enjoy working on complex projects in these domains. With my passion for technology and a continuous desire to learn, I am dedicated to creating innovative and effective solutions.</p>
+
+        <h2 style="color: black">My Projects</h2>
+        <div class="project-card" onclick="window.location.href = 'https://github.com/dikiciemre/REACT'">
+            <strong>React Projects: </strong>React Projelerim İçin Tıklayınız. [Click Here for My React Projects.]
+        </div>
+        
+        <div class="project-card" onclick="window.location.href = 'https://github.com/dikiciemre/FLUTTER'">
+            <strong>Flutter Projects: </strong>Flutter Projelerim İçin Tıklayınız. [Click Here for My Flutter Projects.]
+        </div>
+        
+        <div class="project-card" onclick="window.location.href = 'https://github.com/dikiciemre/JAVA'">
+            <strong>Java Projects: </strong>Java Projelerim İçin Tıklayınız. [Click Here for My Java Projects.]
+        </div>
+        
+        <div class="project-card" onclick="window.location.href = 'https://github.com/dikiciemre/Python'">
+            <strong>Python Projects: </strong>Python Projelerim İçin Tıklayınız. [Click Here for My Python Projects.]
+        </div>
+
+        <div class="project-card" onclick="window.location.href = 'https://github.com/dikiciemre/PHP'">
+            <strong>PHP Projects: </strong>PHP Projelerim İçin Tıklayınız. [Click Here for My PHP Projects.]
+        </div>
+        <!-- Daha fazla proje ekleyebilirsiniz -->
+
+        <a href="https://github.com/dikiciemre/CV" class="cv-button">CV'yi İndir [Download My CV]</a>
+    </section>
+
+    <footer>
+    
+        <p>&copy; 2024 Mustafa Emre Dikici. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

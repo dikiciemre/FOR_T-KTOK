@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .content {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s, transform 0.5s;
+      background-color: #000;
+      color: #fff;
+      border-radius: 10px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .content img {
+      max-width: 80%;
+      border-radius: 10px;
+      margin: 20px 0;
+      filter: brightness(200%) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .content:nth-child(odd) {
+      background-color: #000;
+    }
+
+    .content:nth-child(3n) {
+      background-color: #000;
+    }
+  </style>
+  <title>Scroll ile Değişen İçerikler</title>
+</head>
+<body>
+  <div class="container">
+    <div class="content" id="content1">
+      <h2>Yazı 1</h2>
+      <img src="https://placekitten.com/800/400" alt="Kedi Resmi">
+      <p>Bu birinci sayfanın içeriğidir. Buraya daha fazla yazı, resim, video veya diğer medya öğelerini ekleyebilirsiniz.</p>
+    </div>
+
+    <div class="content" id="content2">
+      <h2>Yazı 2</h2>
+      <img src="https://placekitten.com/800/401" alt="Kedi Resmi">
+      <p>Bu ikinci sayfanın içeriğidir. Yeniden renkler, yazılar ve resimlerle oynayabilirsiniz.</p>
+    </div>
+
+    <div class="content" id="content3">
+      <h2>Yazı 3</h2>
+      <img src="https://placekitten.com/801/400" alt="Kedi Resmi">
+      <p>Bu üçüncü sayfanın içeriğidir. İhtiyacınıza göre düzenleyebilirsiniz.</p>
+    </div>
+
+    <div class="content" id="content4">
+      <h2>Yazı 4</h2>
+      <img src="https://placekitten.com/801/401" alt="Kedi Resmi">
+      <p>Bu dördüncü sayfanın içeriğidir. Dilerseniz daha fazla içerik ekleyebilirsiniz.</p>
+    </div>
+
+    <div class="content" id="content5">
+      <h2>Yazı 5</h2>
+      <img src="https://placekitten.com/802/400" alt="Kedi Resmi">
+      <p>Bu beşinci sayfanın içeriğidir. Stilleri ve içerikleri özelleştirebilirsiniz.</p>
+    </div>
+
+    <!-- Daha fazla sayfa ekleyebilirsiniz -->
+  </div>
+  <script>
+    const contents = document.querySelectorAll('.content');
+
+    document.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      contents.forEach((content, index) => {
+        const contentOffset = content.offsetTop;
+        if (scrollPosition >= contentOffset - windowHeight / 2) {
+          content.classList.add('visible');
+        } else {
+          content.classList.remove('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

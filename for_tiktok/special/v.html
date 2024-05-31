@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevgililer Günü</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+        }
+
+        #heartContainer {
+            position: relative;
+            text-align: center;
+            z-index: 2;
+        }
+
+        #heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: red;
+            font-size: 3rem;
+            animation: heartbeat 1s infinite;
+            z-index: 2;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #ffffff;
+            letter-spacing: 1px;
+            animation: fadeIn 2s ease-out;
+            z-index: 2;
+
+        }
+
+        #heartRain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(255, 0, 0);
+            clip-path: url(#heartPath);
+            animation: fall 5s linear infinite;
+            z-index: 1;
+
+        }
+
+        #backgroundImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width:100%;
+            height:100%;
+            opacity: 0.5;
+            animation: flicker 3s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img id="backgroundImage" src="/love.JPG" alt="Arka Plan Resmi">
+
+    <div id="heartRain"></div>
+    <div id="heartContainer">
+        <span id="heart">&hearts;</span>
+        <div id="message">
+            <strong>Buse Emre</strong><br><br><br><br><br>
+            Sevgililer Günümüz Kutlu Olsun
+        </div>
+    </div>
+
+    <!-- Kalp şeklindeki path -->
+    <svg height="0" width="0">
+        <defs>
+            <clipPath id="heartPath">
+                <path d="M10 2C10 0.89543 10.8954 0 12 0C13.1046 0 14 0.89543 14 2C14 4.12863 12.1647 6.57305 7 11.6C1.83526 6.57305 0 4.12863 0 2C0 0.89543 0.895431 0 2 0C3.10457 0 4 0.89543 4 2C4 2.33453 3.91931 2.65925 3.78078 2.90699C3.64226 3.15474 3.4604 3.31696 3.255 3.34835C3.0496 3.37974 2.84516 3.27363 2.70711 3.1356L2 2.42844L1.29289 3.1356C1.15484 3.27363 0.950401 3.37974 0.745999 3.34835C0.541597 3.31696 0.359735 3.15474 0.221213 2.90699C0.0826907 2.65925 0.00200424 2.33453 0 2C-0.00200424 1.66547 0.0786907 1.34075 0.217213 1.09301C0.355735 0.845259 0.537597 0.683038 0.743 0.651649C0.948401 0.62026 1.15284 0.726367 1.29089 0.864398L2 1.57156L2.70711 0.864398C2.84516 0.726367 3.0496 0.62026 3.255 0.651649C3.4604 0.683038 3.64226 0.845259 3.78078 1.09301C3.91931 1.34075 4 1.66547 4 2C4 2.89681 4.49653 3.79362 5.46447 4.76156L6 5.29756L6.53553 4.76156C7.50347 3.79362 8 2.89681 8 2C8 0.89543 8.89543 0 10 0C11.1046 0 12 0.89543 12 2C12 4.27229 10.1563 6.78636 7 11.7C3.8437 6.78636 2 4.27229 2 2Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <script>
+        // JavaScript ile kalp yağmuru efektini ekleyelim
+        const heartRainContainer = document.getElementById('heartRain');
+
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 5 + 's';
+            heartRainContainer.appendChild(heart);
+        }
+    </script>
+</body>
+</html>

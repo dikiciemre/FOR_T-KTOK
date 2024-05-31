@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Taking App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e0e0e0;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            padding: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Note Taking App</h1>
+        <form id="noteForm">
+            <label for="noteInput">Enter Your Note:</label>
+            <input type="text" id="noteInput" required>
+            <button type="submit">Add Note</button>
+        </form>
+        <ul id="noteList"></ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const noteForm = document.getElementById('noteForm');
+            const noteInput = document.getElementById('noteInput');
+            const noteList = document.getElementById('noteList');
+
+            noteForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                addNote();
+            });
+
+            noteList.addEventListener('click', function (e) {
+                if (e.target.classList.contains('delete-btn')) {
+                    deleteNote(e.target.parentNode);
+                }
+            });
+
+            function addNote() {
+                const noteText = noteInput.value.trim();
+
+                if (noteText !== '') {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span>${noteText}</span>
+                        <button class="delete-btn">Delete</button>
+                    `;
+                    noteList.appendChild(li);
+                    noteInput.value = '';
+                }
+            }
+
+            function deleteNote(noteElement) {
+                noteElement.remove();
+            }
+        });
+    </script>
+</body>
+</html>

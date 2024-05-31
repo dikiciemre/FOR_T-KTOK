@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Share Buttons</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        #share-buttons {
+            text-align: center;
+        }
+
+        .share-button {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="share-buttons">
+        <button class="share-button" onclick="shareOnFacebook()">Share on Facebook</button>
+        <button class="share-button" onclick="shareOnTwitter()">Share on Twitter</button>
+        <button class="share-button" onclick="shareOnLinkedIn()">Share on LinkedIn</button>
+    </div>
+
+    <script>
+        function shareOnFacebook() {
+            alert('Shared on Facebook!');
+            // Here, you would typically add the actual Facebook sharing functionality using their API.
+        }
+
+        function shareOnTwitter() {
+            alert('Shared on Twitter!');
+            // Here, you would typically add the actual Twitter sharing functionality using their API.
+        }
+
+        function shareOnLinkedIn() {
+            alert('Shared on LinkedIn!');
+            // Here, you would typically add the actual LinkedIn sharing functionality using their API.
+        }
+    </script>
+</body>
+</html>

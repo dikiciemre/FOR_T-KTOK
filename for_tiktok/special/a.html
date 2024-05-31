@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .entry-text {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    }
+
+    .entry-text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <title>Giriş Animasyonu</title>
+</head>
+<body>
+  <h1 class="entry-text" id="entryText">Merhaba, dünya!</h1>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var entryText = document.getElementById('entryText');
+      entryText.classList.add('show');
+    });
+  </script>
+</body>
+</html>

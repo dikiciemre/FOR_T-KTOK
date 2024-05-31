@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valentine's Day</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    #heart {
+      position: relative;
+      width: 100px;
+      height: 90px;
+      background-color: #e21d3e;
+      transform: rotate(-45deg);
+      margin: 50px;
+      animation: beat 1s infinite alternate;
+    }
+
+    #heart::before,
+    #heart::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #e21d3e;
+      border-radius: 50%;
+    }
+
+    #heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    #heart::after {
+      top: 0;
+      left: 50px;
+    }
+
+    #text {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards 2s;
+    }
+
+    .heart-rain {
+      position: fixed;
+      top: 0;
+      left: calc(50% - 50vw);
+      width: 10px;
+      height: 10px;
+      background-color: #e21d3e;
+      border-radius: 50%;
+      opacity: 0;
+      animation: fall 5s infinite linear;
+    }
+
+    @keyframes beat {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fall {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="heart"></div>
+  <div id="text">Happy Valentine's Day</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const heartRainContainer = document.body;
+
+      for (let i = 0; i < 50; i++) {
+        const heartRain = document.createElement('div');
+        heartRain.className = 'heart-rain';
+        heartRain.style.left = `${Math.random() * 100}vw`;
+        heartRain.style.animationDelay = `${Math.random() * 5}s`;
+        heartRainContainer.appendChild(heartRain);
+      }
+    });
+  </script>
+</body>
+</html>

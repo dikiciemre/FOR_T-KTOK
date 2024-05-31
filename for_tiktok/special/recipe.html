@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #e4e4e4;
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 5px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recipe App</h1>
+        <form id="recipe-form">
+            <input type="text" id="recipe-name" placeholder="Recipe Name" required>
+            <textarea id="recipe-ingredients" placeholder="Ingredients" required></textarea>
+            <textarea id="recipe-instructions" placeholder="Instructions" required></textarea>
+            <button type="submit">Add Recipe</button>
+        </form>
+        <h2>Recipes</h2>
+        <ul id="recipe-list"></ul>
+    </div>
+    <script>
+        document.getElementById('recipe-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('recipe-name').value;
+            const ingredients = document.getElementById('recipe-ingredients').value;
+            const instructions = document.getElementById('recipe-instructions').value;
+
+            if (name === '' || ingredients === '' || instructions === '') {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            const recipeList = document.getElementById('recipe-list');
+            const li = document.createElement('li');
+
+            li.innerHTML = `
+                <h3>${name}</h3>
+                <p><strong>Ingredients:</strong> ${ingredients}</p>
+                <p><strong>Instructions:</strong> ${instructions}</p>
+            `;
+
+            recipeList.appendChild(li);
+
+            document.getElementById('recipe-form').reset();
+        });
+    </script>
+</body>
+</html>

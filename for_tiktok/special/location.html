@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location-Based Service Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #app {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #location-info {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Location-Based Service Application</h1>
+        <p id="location-info">Loading location information...</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const locationInfo = document.getElementById('location-info');
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        const accuracy = position.coords.accuracy;
+
+                        locationInfo.innerHTML = `Your Location: Latitude ${latitude}, Longitude ${longitude}, Accuracy ${accuracy} meters.`;
+                    },
+                    function(error) {
+                        locationInfo.innerHTML = `Unable to retrieve location. Error: ${error.message}`;
+                    }
+                );
+            } else {
+                locationInfo.innerHTML = 'Your browser does not support location services.';
+            }
+        });
+    </script>
+</body>
+</html>

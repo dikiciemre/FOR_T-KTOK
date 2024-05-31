@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #digital-clock {
+            text-align: center;
+        }
+
+        #time {
+            font-size: 3em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="digital-clock">
+        <h1 id="time">Loading...</h1>
+    </div>
+
+    <script>
+        function updateDigitalClock() {
+            const currentTime = new Date();
+            const hours = currentTime.getHours();
+            const minutes = currentTime.getMinutes();
+            const seconds = currentTime.getSeconds();
+
+            const formattedTime = `${padNumber(hours)}:${padNumber(minutes)}:${padNumber(seconds)}`;
+            
+            document.getElementById('time').innerText = formattedTime;
+        }
+
+        function padNumber(number) {
+            return number < 10 ? '0' + number : number;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDigitalClock();
+            setInterval(updateDigitalClock, 1000);
+        });
+    </script>
+</body>
+</html>

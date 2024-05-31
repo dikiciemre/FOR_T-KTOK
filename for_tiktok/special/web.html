@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Website with Cards and Navbar</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    background-color: #555; /* Gri tonu */
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background-color 0.3s;
+  }
+
+  .navbar:hover {
+    background-color: #444; /* Gri hover efekti */
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 50px;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .card-description {
+    font-size: 16px;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <h1>My Website</h1>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-content">
+      <h2 class="card-title">Card Title 1</h2>
+      <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac turpis eget nisi tristique viverra nec eu nunc.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-content">
+      <h2 class="card-title">Card Title 2</h2>
+      <p class="card-description">Sed ullamcorper enim in nisl ullamcorper, a feugiat urna egestas. Quisque ultrices, nulla et aliquet posuere.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-content">
+      <h2 class="card-title">Card Title 3</h2>
+      <p class="card-description">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris id tortor non.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

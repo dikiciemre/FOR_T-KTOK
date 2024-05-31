@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .countdown-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown {
+            display: flex;
+            gap: 20px;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-item span {
+            display: block;
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .label {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <div class="countdown">
+            <div class="countdown-item">
+                <span id="days">00</span>
+                <div class="label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">00</span>
+                <div class="label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">00</span>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds">00</span>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        // Set the date we're counting down to
+        const targetDate = new Date('Dec 31, 2024 23:59:59').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysElement.innerHTML = days < 10 ? '0' + days : days;
+            hoursElement.innerHTML = hours < 10 ? '0' + hours : hours;
+            minutesElement.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            secondsElement.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('.countdown').innerHTML = "EXPIRED";
+            }
+        }
+
+        // Update the countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Initial call to display the countdown immediately
+        updateCountdown();
+    </script>
+</body>
+</html>
