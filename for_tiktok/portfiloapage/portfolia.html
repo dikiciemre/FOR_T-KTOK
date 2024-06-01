@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Page</title>
+<style>
+    * {
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+section ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section li {
+    flex-basis: calc(33.33% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+section li:nth-child(3n+4) {
+    margin-right: 0;
+}
+
+section a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+section a:hover {
+    text-decoration: underline;
+}
+
+section a img {
+    width: 100%;
+    height: auto;
+    transition: transform .5s ease;
+}
+
+section a:hover img {
+    transform: scale(1.1);
+}
+
+section a h3 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+.progress-bar {
+    height: 20px;
+    background-color: #ddd;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.progress-bar span {
+    display: block;
+    height: 100%;
+    background-color: #4caf50;
+}
+    
+</style>
+</head>
+<body>
+    <header>
+        <h1>John Doe</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti illo cum placeat inventore, similique ratione numquam expedita cupiditate officiis reiciendis dolores dolore. Exercitationem tenetur beatae dolorem et, placeat iste assumenda.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque, et veniam numquam vel reiciendis quia? Aperiam soluta ducimus quaerat asperiores!</p>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li>
+                    <a class="none" href="https://example.com/project1">
+                        <img src="/people.png" alt="Project 1">
+                        <h3>Project 1</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="none" href="https://example.com/project2">
+                        <img src="/people.png" alt="Project 2">
+                        <h3>Project 2</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="none" href="https://example.com/project3">
+                        <img src="/people.png" alt="Project 3">
+                        <h3>Project 3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>
+                    <h3>HTML</h3>
+                    <div class="progress-bar">
+                        <span style="width: 90%;"></span>
+                    </div>
+                </li>
+                <li>
+                    <h3>CSS</h3>
+                    <div class="progress-bar">
+                        <span style="width: 80%;"></span>
+                    </div>
+                </li>
+                <li>
+                    <h3>JavaScript</h3>
+                    <div class="progress-bar">
+                        <span style="width: 70%;"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Email: john.doe@example.com</p>
+            <p>Phone: 123-456-7890</p>
+        </section>
+    </main>
+</body>
+</html>
