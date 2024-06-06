@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .neon {
+            font-family: 'Arial', sans-serif;
+            font-size: 4em;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 0 5px #fff,
+                         0 0 10px #fff,
+                         0 0 20px #ff00ff,
+                         0 0 30px #ff00ff,
+                         0 0 40px #ff00ff,
+                         0 0 50px #ff00ff,
+                         0 0 60px #ff00ff,
+                         0 0 70px #ff00ff;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 5px #fff,
+                             0 0 10px #fff,
+                             0 0 20px #ff00ff,
+                             0 0 30px #ff00ff,
+                             0 0 40px #ff00ff,
+                             0 0 50px #ff00ff,
+                             0 0 60px #ff00ff,
+                             0 0 70px #ff00ff;
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                opacity: .5;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="neon">
+        Thanks For 1000 Followers
+    </div>
+</body>
+</html>
