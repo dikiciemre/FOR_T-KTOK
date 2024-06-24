@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Işıklı Giriş Animasyonu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .neon-text {
+            font-size: 4em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff, 
+                0 0 10px #fff, 
+                0 0 20px #ff00ff, 
+                0 0 30px #ff00ff, 
+                0 0 40px #ff00ff, 
+                0 0 50px #ff00ff, 
+                0 0 60px #ff00ff, 
+                0 0 70px #ff00ff;
+            animation: neon-flicker 1.5s infinite alternate;
+        }
+
+        @keyframes neon-flicker {
+            0%,
+            100% {
+                text-shadow: 
+                    0 0 5px #fff, 
+                    0 0 10px #fff, 
+                    0 0 20px #ff00ff, 
+                    0 0 30px #ff00ff, 
+                    0 0 40px #ff00ff, 
+                    0 0 50px #ff00ff, 
+                    0 0 60px #ff00ff, 
+                    0 0 70px #ff00ff;
+            }
+            50% {
+                text-shadow: 
+                    0 0 5px #fff, 
+                    0 0 10px #fff, 
+                    0 0 20px #ff00ff, 
+                    0 0 30px #ff00ff, 
+                    0 0 40px #ff00ff, 
+                    0 0 50px #ff00ff, 
+                    0 0 60px #ff00ff, 
+                    0 0 70px #ff00ff,
+                    0 0 80px #ff00ff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="neon-text">Welcome!</div>
+</body>
+</html>
