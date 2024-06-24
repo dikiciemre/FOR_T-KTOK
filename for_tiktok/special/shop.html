@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 60px);
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li button {
+            background-color: #dc3545;
+            border: none;
+            padding: 5px 10px;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        li button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping List</h1>
+        <input type="text" id="itemInput" placeholder="Add item...">
+        <button id="addButton">Add</button>
+        <ul id="shoppingList"></ul>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addButton = document.getElementById("addButton");
+            const itemInput = document.getElementById("itemInput");
+            const shoppingList = document.getElementById("shoppingList");
+
+            addButton.addEventListener("click", addItem);
+            itemInput.addEventListener("keypress", function(e) {
+                if (e.key === "Enter") {
+                    addItem();
+                }
+            });
+
+            function addItem() {
+                const itemText = itemInput.value.trim();
+                if (itemText !== "") {
+                    const listItem = document.createElement("li");
+
+                    const itemSpan = document.createElement("span");
+                    itemSpan.textContent = itemText;
+                    listItem.appendChild(itemSpan);
+
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.addEventListener("click", function() {
+                        shoppingList.removeChild(listItem);
+                    });
+                    listItem.appendChild(deleteButton);
+
+                    shoppingList.appendChild(listItem);
+                    itemInput.value = "";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
