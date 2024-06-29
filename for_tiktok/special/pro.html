@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        header h1 {
+            text-align: center;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2rem 0;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .project {
+            background: #f4f4f4;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            flex: 1 1 calc(33.333% - 2rem);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 0.5rem 0 0.25rem;
+        }
+
+        form input, form textarea {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        form button {
+            padding: 0.5rem;
+            background: #333;
+            color: #fff;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Your Name</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>My name is ... and I am a web developer...</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 2</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Project description...</p>
+                </div>
+                <!-- More projects -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your message!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
