@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Text Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .neon-text {
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 0 5px #fff,
+                         0 0 10px #fff,
+                         0 0 20px #ff00ff,
+                         0 0 30px #ff00ff,
+                         0 0 40px #ff00ff,
+                         0 0 50px #ff00ff,
+                         0 0 60px #ff00ff;
+            opacity: 0;
+            transform: scale(0.5);
+            animation: neonFlicker 1.5s infinite alternate, colorChange 3s infinite alternate, textMove 5s infinite alternate, fadeIn 2s forwards;
+        }
+
+        @keyframes neonFlicker {
+            0%, 100% {
+                text-shadow: 0 0 5px #fff,
+                             0 0 10px #fff,
+                             0 0 20px #ff00ff,
+                             0 0 30px #ff00ff,
+                             0 0 40px #ff00ff,
+                             0 0 50px #ff00ff,
+                             0 0 60px #ff00ff;
+            }
+            50% {
+                text-shadow: 0 0 10px #fff,
+                             0 0 20px #fff,
+                             0 0 30px #ff00ff,
+                             0 0 40px #ff00ff,
+                             0 0 50px #ff00ff,
+                             0 0 60px #ff00ff,
+                             0 0 70px #ff00ff;
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #ff00ff;
+                text-shadow: 0 0 5px #ff00ff,
+                             0 0 10px #ff00ff,
+                             0 0 20px #ff00ff,
+                             0 0 30px #ff00ff,
+                             0 0 40px #ff00ff,
+                             0 0 50px #ff00ff,
+                             0 0 60px #ff00ff;
+            }
+            50% {
+                color: #00ffff;
+                text-shadow: 0 0 5px #00ffff,
+                             0 0 10px #00ffff,
+                             0 0 20px #00ffff,
+                             0 0 30px #00ffff,
+                             0 0 40px #00ffff,
+                             0 0 50px #00ffff,
+                             0 0 60px #00ffff;
+            }
+            100% {
+                color: #ff00ff;
+                text-shadow: 0 0 5px #ff00ff,
+                             0 0 10px #ff00ff,
+                             0 0 20px #ff00ff,
+                             0 0 30px #ff00ff,
+                             0 0 40px #ff00ff,
+                             0 0 50px #ff00ff,
+                             0 0 60px #ff00ff;
+            }
+        }
+
+        @keyframes textMove {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-10px);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+            75% {
+                transform: translateX(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="neon-text">Welcome</div>
+</body>
+</html>
