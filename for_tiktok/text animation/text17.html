@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Text Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .neon-text {
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 0 5px #fff,
+                         0 0 10px #fff,
+                         0 0 20px #ff00ff,
+                         0 0 30px #ff00ff,
+                         0 0 40px #ff00ff,
+                         0 0 50px #ff00ff,
+                         0 0 60px #ff00ff;
+            animation: neon 1.5s infinite alternate, colors 3s infinite alternate;
+        }
+
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 5px #fff,
+                             0 0 10px #fff,
+                             0 0 20px #ff00ff,
+                             0 0 30px #ff00ff,
+                             0 0 40px #ff00ff,
+                             0 0 50px #ff00ff,
+                             0 0 60px #ff00ff;
+            }
+            to {
+                text-shadow: 0 0 10px #fff,
+                             0 0 20px #fff,
+                             0 0 30px #ff00ff,
+                             0 0 40px #ff00ff,
+                             0 0 50px #ff00ff,
+                             0 0 60px #ff00ff,
+                             0 0 70px #ff00ff;
+            }
+        }
+
+        @keyframes colors {
+            0% {
+                color: #ff00ff;
+                text-shadow: 0 0 5px #ff00ff,
+                             0 0 10px #ff00ff,
+                             0 0 20px #ff00ff,
+                             0 0 30px #ff00ff,
+                             0 0 40px #ff00ff,
+                             0 0 50px #ff00ff,
+                             0 0 60px #ff00ff;
+            }
+            50% {
+                color: #00ffff;
+                text-shadow: 0 0 5px #00ffff,
+                             0 0 10px #00ffff,
+                             0 0 20px #00ffff,
+                             0 0 30px #00ffff,
+                             0 0 40px #00ffff,
+                             0 0 50px #00ffff,
+                             0 0 60px #00ffff;
+            }
+            100% {
+                color: #ff00ff;
+                text-shadow: 0 0 5px #ff00ff,
+                             0 0 10px #ff00ff,
+                             0 0 20px #ff00ff,
+                             0 0 30px #ff00ff,
+                             0 0 40px #ff00ff,
+                             0 0 50px #ff00ff,
+                             0 0 60px #ff00ff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="neon-text">Neon Lights</div>
+</body>
+</html>
