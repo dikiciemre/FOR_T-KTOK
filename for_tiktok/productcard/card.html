@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+        }
+        .profile-card {
+            background: #fff;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .profile-card:hover {
+            transform: translateY(-10px);
+        }
+        .profile-card img {
+            width: 100%;
+            border-bottom: 1px solid #f4f4f4;
+        }
+        .profile-card h2 {
+            margin: 20px 0 10px;
+            font-size: 24px;
+            color: #333;
+        }
+        .profile-card p {
+            margin: 0 20px 20px;
+            font-size: 16px;
+            color: #666;
+        }
+        .profile-card .social-links {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background: #f4f4f4;
+        }
+        .profile-card .social-links a {
+            margin: 0 10px;
+            color: #333;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        .profile-card .social-links a:hover {
+            color: #007bff;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <img src="/view3.jpg" alt="Profile Image">
+        <h2>John Doe</h2>
+        <p>Software Developer</p>
+        <a href="mailto:john.doe@example.com" class="button">Contact</a>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/johndoe" target="_blank">
+                <i class="fab fa-linkedin"></i> <!-- Replace with LinkedIn icon -->
+            </a>
+            <a href="https://github.com/johndoe" target="_blank">
+                <i class="fab fa-github"></i> <!-- Replace with GitHub icon -->
+            </a>
+            <a href="https://twitter.com/johndoe" target="_blank">
+                <i class="fab fa-twitter"></i> <!-- Replace with Twitter icon -->
+            </a>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- FontAwesome for icons -->
+</body>
+</html>
