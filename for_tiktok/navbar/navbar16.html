@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Navbar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      background: #111;
+    }
+    .navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+    .navbar ul li {
+      margin: 0 15px;
+    }
+    .navbar ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      padding: 5px 10px;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .navbar ul li a::before,
+    .navbar ul li a::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+      transition: opacity 0.3s;
+    }
+    .navbar ul li a:hover::before,
+    .navbar ul li a:hover::after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    const links = document.querySelectorAll('.navbar a');
+
+    links.forEach(link => {
+      link.addEventListener('mouseover', () => {
+        link.style.color = '#0ff';
+      });
+
+      link.addEventListener('mouseout', () => {
+        link.style.color = '#fff';
+      });
+    });
+  </script>
+</body>
+</html>
