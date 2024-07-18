@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Testimonial</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .testimonial {
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .testimonial .content {
+            padding: 20px;
+        }
+
+        .testimonial .content h2 {
+            color: #333;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .testimonial .content p {
+            color: #666;
+            font-style: italic;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="testimonial">
+        <div class="content">
+            <h2>What our clients say</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan justo et nulla pulvinar, eget venenatis risus ullamcorper.</p>
+        </div>
+    </div>
+
+    <script>
+        const testimonial = document.querySelector('.testimonial');
+        const content = testimonial.querySelector('.content');
+
+        content.addEventListener('click', function() {
+            if (testimonial.classList.contains('open')) {
+                // Kapanır durumda, açık duruma getir
+                testimonial.classList.remove('open');
+                content.style.display = 'none';
+            } else {
+                // Açık durumda, kapanır duruma getir
+                testimonial.classList.add('open');
+                content.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

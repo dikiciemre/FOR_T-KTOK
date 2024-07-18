@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .testimonial-section {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+        }
+        .testimonial-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .testimonial {
+            margin-bottom: 20px;
+        }
+        .testimonial-text {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .testimonial-author {
+            font-weight: bold;
+        }
+        .author-role {
+            color: #555;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .control-button {
+            background: #007bff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .control-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <section class="testimonial-section">
+        <div class="testimonial-container">
+            <div class="testimonial" id="testimonial1">
+                <p class="testimonial-text">"This service was exceptional and exceeded all my expectations."</p>
+                <p class="testimonial-author">John Doe</p>
+                <p class="author-role">CEO, Company Inc.</p>
+            </div>
+            <div class="testimonial" id="testimonial2" style="display:none;">
+                <p class="testimonial-text">"I was thoroughly impressed with the quality and attention to detail."</p>
+                <p class="testimonial-author">Jane Smith</p>
+                <p class="author-role">CTO, Another Company</p>
+            </div>
+            <div class="testimonial" id="testimonial3" style="display:none;">
+                <p class="testimonial-text">"Absolutely fantastic! Highly recommend to everyone."</p>
+                <p class="testimonial-author">Sam Wilson</p>
+                <p class="author-role">Designer, Creative Studio</p>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="control-button" id="prevBtn" onclick="prevTestimonial()">Previous</button>
+            <button class="control-button" id="nextBtn" onclick="nextTestimonial()">Next</button>
+        </div>
+    </section>
+
+    <script>
+        let currentTestimonial = 1;
+        const totalTestimonials = 3;
+
+        function showTestimonial(index) {
+            for (let i = 1; i <= totalTestimonials; i++) {
+                document.getElementById(`testimonial${i}`).style.display = 'none';
+            }
+            document.getElementById(`testimonial${index}`).style.display = 'block';
+        }
+
+        function prevTestimonial() {
+            if (currentTestimonial > 1) {
+                currentTestimonial--;
+                showTestimonial(currentTestimonial);
+            }
+        }
+
+        function nextTestimonial() {
+            if (currentTestimonial < totalTestimonials) {
+                currentTestimonial++;
+                showTestimonial(currentTestimonial);
+            }
+        }
+
+        showTestimonial(currentTestimonial);
+    </script>
+</body>
+</html>
