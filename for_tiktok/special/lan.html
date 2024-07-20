@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Landing Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #35424a;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        #main-header {
+            text-align: center;
+            background-color: #35424a;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77cc6d 3px solid;
+        }
+
+        #main-header h1 {
+            margin: 0;
+            text-transform: uppercase;
+            font-size: 24px;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        #intro {
+            padding: 30px;
+            background: #fff;
+            text-align: center;
+            animation: slideInFromRight 1s ease-out;
+        }
+
+        #intro h2 {
+            font-size: 22px;
+            color: #35424a;
+        }
+
+        #intro p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        #portfolio {
+            padding: 30px;
+            background: #e4e4e4;
+            animation: slideInFromBottom 1s ease-out;
+        }
+
+        #portfolio h2 {
+            color: #35424a;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-item {
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item img:hover {
+            transform: scale(1.05);
+        }
+
+        #contact {
+            padding: 30px;
+            background: #333;
+            color: white;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        #contact h2 {
+            font-size: 22px;
+            color: #77cc6d;
+        }
+
+        footer {
+            background: #35424a;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Portfolio</h1>
+        </div>
+    </header>
+
+    <section id="intro">
+        <div class="container">
+            <h2>Welcome to My Portfolio</h2>
+            <p>Hello! I'm Mustafa Emre Dikici, a 4th-year Computer Engineering student at Istanbul Topkapi University. This is a showcase of my projects and achievements.</p>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>My Work</h2>
+            <div class="portfolio-item">
+                <h3>Project 1</h3>
+                <img src="/view.jpg" alt="Project 1">
+                <p>Description of Project 1.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 2</h3>
+                <img src="/view3.jpg" alt="Project 2">
+                <p>Description of Project 2.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 3</h3>
+                <img src="/view2.jpg" alt="Project 3">
+                <p>Description of Project 3.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: dikicimustafaemre@gmail.com</p>
+            <p>Phone: 538-791-5674</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mustafa Emre Dikici</p>
+    </footer>
+</body>
+</html>
