@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Text Animation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+        }
+
+        .animated-text {
+            font-size: 48px;
+            font-weight: bold;
+            color: #fff;
+            animation: textColorChange 5s infinite;
+        }
+
+        @keyframes textColorChange {
+            0% { color: #ff0000; }   /* Red */
+            25% { color: #00ff00; }  /* Green */
+            50% { color: #0000ff; }  /* Blue */
+            75% { color: #ffff00; }  /* Yellow */
+            100% { color: #ff0000; } /* Red */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-text">Welcome to My Website!</div>
+
+    <script>
+        // No additional JavaScript is required for this simple text animation.
+    </script>
+
+</body>
+</html>
