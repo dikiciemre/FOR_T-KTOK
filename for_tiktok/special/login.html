@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Login Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0a0a0a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            animation: animateGradient 6s infinite linear;
+            z-index: -1;
+        }
+
+        @keyframes animateGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .login-container h2 {
+            margin-bottom: 30px;
+            font-size: 32px;
+            color: #0ff;
+        }
+
+        .input-field {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .input-field input:focus {
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .input-field label {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-field input:focus ~ label,
+        .input-field input:not(:placeholder-shown) ~ label {
+            top: 0;
+            left: 15px;
+            font-size: 12px;
+            color: #0ff;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #00ffff, #00ff7f);
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(45deg, #00ff7f, #00ffff);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="input-field">
+            <input type="text" id="username" required>
+            <label for="username">Username</label>
+        </div>
+        <div class="input-field">
+            <input type="password" id="password" required>
+            <label for="password">Password</label>
+        </div>
+        <button class="login-btn">Login</button>
+    </div>
+
+</body>
+</html>
