@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #1a1a2e;
+      color: white;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .animated-text {
+      font-size: 2rem;
+      display: flex;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .animated-text span {
+      opacity: 0;
+      transform: translateY(20px);
+      display: inline-block;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-text" id="animated-text">Hello, World!</div>
+  <script>
+    const text = "Hello, World!";
+    const container = document.getElementById('animated-text');
+
+    // Clear the container and create a span for each character
+    container.innerHTML = '';
+    text.split('').forEach((char, index) => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.style.animationDelay = `${index * 0.1}s`; // Stagger animation delay
+      container.appendChild(span);
+    });
+  </script>
+</body>
+</html>
